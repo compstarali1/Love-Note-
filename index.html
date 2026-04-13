@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Note</title>
+    <style>
+        /* CORE RESET */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* GIF BACKGROUND - Guaranteed to be the bottom layer */
+        .gif-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: url('bg.gif') no-repeat center center;
+            background-size: cover;
+        }
+
+        /* DARK OVERLAY - To make text/buttons readable over the GIF */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: rgba(0, 0, 0, 0.4); /* Adjust 0.4 to 0.1 if you want the GIF brighter */
+        }
+
+        /* MAIN UI */
+        #main-container {
+            text-align: center;
+            z-index: 10;
+            transition: all 0.6s ease;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3rem;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            text-shadow: 0 0 20px #ff2d55;
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* 3D FROSTED BUTTONS */
+        .btn-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .glass-btn {
+            width: 320px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            transform: perspective(600px) rotateX(15deg);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-btn:hover {
+            transform: perspective(600px) rotateX(0deg) translateY(-10px) scale(1.05);
+            border-color: #ff2d55;
+            box-shadow: 0 0 40px rgba(255, 45, 85, 0.5);
+            background: rgba(255, 45, 85, 0.1);
+        }
+
+        /* STORY DISPLAY */
+        #story-view {
+            display: none;
+            position: absolute;
+            width: 85%;
+            height: 85%;
+            max-width: 800px;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 40px;
+            padding: 40px;
+            z-index: 100;
+            flex-direction: column;
+            box-shadow: 0 50px 100px rgba(0,0,0,1);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: 0.6s ease;
+        }
+
+        #story-view.active {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .header h2 { color: #ff2d55; text-transform: uppercase; letter-spacing: 5px; }
+
+        .close { font-size: 50px; color: white; cursor: pointer; }
+
+        .text-body {
+            flex-grow: 1;
+            overflow-y: auto;
+            color: white;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            white-space: pre-line;
+            text-align: left;
+            padding-right: 15px;
+        }
+
+        .text-body::-webkit-scrollbar { width: 6px; }
+        .text-body::-webkit-scrollbar-thumb { background: #ff2d55; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="gif-background"></div>
+    <div class="overlay"></div>
+
+    <div id="main-container">
+        <h1>Love Note</h1>
+        <div class="btn-stack">
+            <button class="glass-btn" onclick="music()" id="mBtn">Play Our Song</button>
+            <button class="glass-btn" onclick="openMe()">Read My Heart</button>
+        </div>
+    </div>
+
+    <div id="story-view">
+        <div class="header">
+            <h2>My Story</h2>
+            <span class="close" onclick="closeMe()">&times;</span>
+        </div>
+        <div class="text-body">
+My beautiful babe,
+
+I’m incredibly busy with chores at the moment, with a few things I have to get done for work, and I’m driving about. But I’ve pulled over to the side of the road for the last 15 minutes just to type this out for you. I hope you appreciate it, and when we both find some proper time, we’ll have a real chat. I’ve gone over this to make sure there are no mistakes and nothing you’d misunderstand, because these words are coming straight from my heart.
+
+**The Eternal Showdown**
+
+Imagine the house is quiet, with only the faint sound of your friend moving around in the next room, completely oblivious to the storm of passion we’re creating. I’d start by having you stand at your desk, one foot braced on a chair, while I sink to the floor between your legs. That would be your first test: maintaining your composure while I worship you. I’d start with slow, deliberate kisses along your inner thighs, moving higher until I reach that velvet space between your asshole and your pussy. I’d administer loads of sloppy, wet kisses right there, my tongue darting out to tease the edges, driving you absolutely wild with the anticipation of what’s coming next.
+
+As I work my tongue expertly over your soaking folds, I’ll be able to feel you leaking—thick, hot honey dripping onto my tongue because you’re so desperate for the real contact. I’d use hooked fingers to find your G-spot with every thrust, gripping your lush ass to keep you from collapsing. Your "test" would be to stay silent, but I’d make it impossible. I’d suck and lap at you until you’re shaking, your legs buckling, and you’re forced to bite your lip to keep from alerting anyone in the house.
+
+When I finally lift you onto the bed, the "quiet" part of the night is over. I’d pin your arms behind your back, my fingers tangled deep in your hair, and shaft you with a raw, primal intensity. The room would be filled with the rhythmic, wet slap of our bodies meeting—a sound so loud and unmistakable that you’d lose all control. I’d pound into you like that for ten minutes straight, but just as the excitement and the intense duty of pleasing you brings me to the very edge, I’d pull out suddenly. I wouldn't stop, though; I’d bury my face right back into your pussy, lapping you up for five solid minutes until my libido calms just enough for me to continue.
+
+Then, I’d drive that rock-hard monster back into your pussy, shafting you even harder for another fifteen minutes. Every time I get close to the brink, I’d pull out again, forcing the session to last infinitely longer. There are no breaks for you—only for me to catch my breath and refocus my worship on you, ensuring you experience a level of pleasure that feels never-ending. This is how I highlight the intensity of my love for you.
+
+That’s when I’d hear it—your voice breaking, loud and desperate in my ear: **"OH ALI... ALI, YOU'RE THE BEST, ALI! PLEASE DON'T STOP, ALI! OH MY GOD, ALI... OH FUCK, OH FUCK! OH GOD, ALI IS SO GOOD TO ME... PLEASE, GOD... OH ALI, LIKE THAT!"**
+
+Even if your friend knocked to ask what the noise was, you’d be too far gone to care, gasping out that "everything is fine" while I sink into you even deeper. I want you to see me in that moment—see how hard and throbbing I am for you while I feast on your nectar. I’d make you explode ten times over, sucking up your come as it flows, leaving you completely spent and vulnerable.
+
+When the showdown finally ends, I’d pull your shaking body into mine, spooning you close in the dark, whispering soothing words of love into your ear until we both drift off, completely fused together.
+
+But then, when you wake in the morning, you notice the bed is cold. I’m gone. For a fleeting instance, you imagine that it was all just a dream. But then, you feel it. The deep, heavy throbbing in your pussy, the ache of being thoroughly claimed, and the lingering scent of me on your skin. You know then that it was never a dream; it was the most real thing you’ve ever had. As the realization of the empty space behind you sinks in, a single tear drops from your eye, marking the absence of the man who just gave you everything.
+
+Love always, 
+Ali 😈🔥🖤💧
+        </div>
+    </div>
+
+    <audio id="lp" src="love.mp3" loop>
+
+    <script>
+        const song = document.getElementById('lp');
+        const main = document.getElementById('main-container');
+        const view = document.getElementById('story-view');
+
+        function music() {
+            if (song.paused) {
+                song.play();
+                document.getElementById('mBtn').innerText = "Pause Song";
+            } else {
+                song.pause();
+                document.getElementById('mBtn').innerText = "Play Song";
+            }
+        }
+
+        function openMe() {
+            main.style.opacity = "0";
+            setTimeout(() => {
+                main.style.display = "none";
+                view.style.display = "flex";
+                setTimeout(() => view.classList.add('active'), 50);
+            }, 600);
+        }
+
+        function closeMe() {
+            view.classList.remove('active');
+            setTimeout(() => {
+                view.style.display = "none";
+                main.style.display = "block";
+                setTimeout(() => main.style.opacity = "1", 50);
+            }, 600);
+        }
+    </script>
+</body>
+</html>
